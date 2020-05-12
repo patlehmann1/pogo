@@ -1,8 +1,15 @@
 language: python
-
-install:
-  - curl -fsSL https://deno.land/x/install/install.sh | sh -s v0.42.0
-  - export PATH="$HOME/.deno/bin:$PATH"
-
-script:
-  - deno test test/*
+jobs:
+  include:
+    install: 
+    - curl -fsSL https://deno.land/x/install/install.sh | sh -s v0.42.0
+    - export PATH="$HOME/.deno/bin:$PATH"
+    script: deno test/*
+    install: 
+      - curl -fsSL https://deno.land/x/install/install.sh | sh -s v1.0.0-rc1
+      - export PATH="$HOME/.deno/bin:$PATH"
+    script: deno test/*
+    install: 
+      - curl -fsSL https://deno.land/x/install/install.sh | sh -s v1.0.0-rc2
+      - export PATH="$HOME/.deno/bin:$PATH"
+    script: deno test/*
